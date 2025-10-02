@@ -24,12 +24,12 @@ cd REPO
 # Trae del remoto todas las ramas
 git fetch origin
 
-# Si ya existe dev en remoto
-git checkout -b dev origin/dev
-
-# (Solo si NO existe dev en remoto y quieres crearla)
+########### (Solo si NO existe dev en remoto y quieres crearla) #######IGNORAR
 # git checkout -b dev
 # git push -u origin dev
+
+# Si ya existe dev en remoto
+git checkout -b dev origin/dev
 
 3) Crear una nueva rama DESDE dev
 ----------------------------------
