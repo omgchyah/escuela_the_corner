@@ -1,0 +1,54 @@
+🚀 Instrucciones rápidas para el equipo
+
+1) Preparar el entorno
+
+  Tener Python 3.10+ y MySQL 8+ instalados.
+  Clonar el repo y abrir la carpeta del proyecto en VS Code.
+
+2) Crear y activar el entorno virtual
+
+Windows (PowerShell)
+
+  python -m venv .venv
+  .\.venv\Scripts\Activate.ps1
+
+
+macOS / Linux
+
+  python3 -m venv .venv
+  source .venv/bin/activate
+
+3) Instalar dependencias
+  pip install -r requirements.txt
+
+4) Configurar credenciales
+
+  Copia el archivo de ejemplo y edítalo:
+
+  Windows
+
+  copy .env.example .env
+
+
+  macOS / Linux
+
+  cp .env.example .env
+
+  Rellena en .env:
+
+  DB_HOST=localhost
+  DB_USER=root
+  DB_PASSWORD=tu_password
+  DB_NAME=escuela
+
+5) Crear las tablas en MySQL
+
+  Con MySQL en marcha, ejecuta el esquema:
+
+  # Opción CLI (ajusta la ruta a tu proyecto)
+  mysql -u root -p < src/database/schema.sql
+  Si usas Workbench, abre src/database/schema.sql y ejecútalo ahí.
+
+6) Probar que todo conecta
+  python src/main.py
+  Deberías ver un mensaje tipo “Connected to DB.”

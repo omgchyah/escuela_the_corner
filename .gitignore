@@ -1,0 +1,77 @@
+# ─────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+*.pyc
+*.egg-info/
+.eggs/
+*.so
+
+# Entornos virtuales
+.venv/
+venv/
+ENV/
+env/
+.python-version
+
+# Herramientas / análisis / tests
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+.ipynb_checkpoints/
+
+# Build / distribución
+build/
+dist/
+wheels/
+pip-wheel-metadata/
+
+# ─────────────────────────────────────────
+# Configuración / secretos
+# ─────────────────────────────────────────
+.env
+.env.*
+!.env.example          # mantiene la plantilla
+
+# ─────────────────────────────────────────
+# Base de datos / dumps locales
+# (NO ignores schema.sql, guardamos solo dumps fuera de src/)
+# ─────────────────────────────────────────
+backups/
+dump/
+dumps/
+data/
+*.sql.dump
+*.dump.sql
+*.bak
+*.backup
+*.sql.gz
+
+# Si quieres ignorar todos los .sql excepto el esquema:
+# *.sql
+# !src/database/schema.sql
+
+# ─────────────────────────────────────────
+# Editores / IDE
+# ─────────────────────────────────────────
+.vscode/
+# Si quieres versionar settings.json, usa:
+# .vscode/*
+# !.vscode/settings.json
+
+.idea/
+*.code-workspace
+
+# ─────────────────────────────────────────
+# SO
+# ─────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
