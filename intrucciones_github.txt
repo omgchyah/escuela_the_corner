@@ -1,0 +1,121 @@
+"""GUÍA RÁPIDA – Git por consola (flujo con rama dev)
+====================================================
+
+Objetivo
+--------
+Clonar el repo, crear ramas desde `dev`, trabajar, subir cambios y hacer merge a `dev`, todo desde la terminal.
+
+Requisitos (una vez por equipo/PC)
+----------------------------------
+1) Tener Git instalado (git --version).
+2) Configurar tu identidad (solo la primera vez):
+   git config --global user.name "Tu Nombre"
+   git config --global user.email "tu_email@example.com"
+
+0) Si el repo es privado, asegúrate de tener acceso y estar logueada/o en GitHub.
+
+1) Clonar el repositorio
+------------------------
+git clone https://github.com/ORGANIZACION/REPO.git
+cd REPO
+
+2) Preparar la rama dev local
+-----------------------------
+# Trae del remoto todas las ramas
+git fetch origin
+
+# Si ya existe dev en remoto
+git checkout -b dev origin/dev
+
+# (Solo si NO existe dev en remoto y quieres crearla)
+# git checkout -b dev
+# git push -u origin dev
+
+3) Crear una nueva rama DESDE dev
+----------------------------------
+# Estar en dev y actualizarla
+git checkout dev
+git pull origin dev
+
+# Crear tu rama de trabajo desde dev
+git checkout -b feature/nombre-corto-descriptivo
+
+Convenciones de nombres (sugeridas)
+ - feature/crear-curso
+ - fix/arreglar-precio-curso
+ - chore/limpiar-readme
+ - docs/actualizar-instrucciones
+
+4) Trabajar y guardar cambios
+-----------------------------
+# Ver estado
+git status
+
+# Añadir todo lo modificado
+git add -A
+
+# Hacer commit (mensaje claro)
+git commit -m "feat: crear endpoint de cursos"
+
+# Repite add+commit cada vez que quieras guardar un hito
+
+5) Subir tu rama al remoto
+--------------------------
+git push -u origin feature/nombre-corto-descriptivo
+
+6) Mantener tu rama actualizada con dev
+---------------------------------------
+# Opción simple: fusionar lo último de dev en tu rama
+git fetch origin
+git checkout feature/nombre-corto-descriptivo
+git merge origin/dev   # si hay conflictos, resuélvelos, luego:
+git add -A
+git commit             # commit de merge
+git push
+
+# (Alternativa avanzada: rebase en vez de merge)
+# git rebase origin/dev
+
+7) Hacer MERGE de tu rama a dev (local y empujar)
+-------------------------------------------------
+# 1) Volver a dev y traer lo último
+git checkout dev
+git pull origin dev
+
+# 2) Fusionar tu rama en dev
+git merge feature/nombre-corto-descriptivo
+
+# 3) Empujar dev al remoto
+git push origin dev
+
+8) Limpiar ramas (opcional pero recomendado)
+--------------------------------------------
+# Borrar rama local (ya fusionada)
+git branch -d feature/nombre-corto-descriptivo
+
+# Borrar rama remota
+git push origin --delete feature/nombre-corto-descriptivo
+
+9) Ver historial y ramas (útil)
+-------------------------------
+git log --oneline --graph --decorate --all
+git branch -a
+
+10) Revertir un cambio (seguro)
+-------------------------------
+# Deshacer un commit (crea un commit inverso)
+git revert <hash_del_commit>
+
+# Si solo querías sacar archivos del staging:
+git restore --staged .
+
+Notas
+-----
+- Siempre crea tu rama NUEVA desde `dev` actualizado.
+- Haz commits pequeños con mensajes claros.
+- Si ves conflictos en un merge:
+  1) Abre los archivos marcados <<<<<<< >>>>>>>, resuelve a mano
+  2) git add -A
+  3) git commit
+- Si prefieren Pull Requests, pueden hacer merge en GitHub; el flujo de commits es el mismo.
+"""
