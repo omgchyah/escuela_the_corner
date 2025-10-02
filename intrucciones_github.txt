@@ -16,7 +16,7 @@ Requisitos (una vez por equipo/PC)
 
 1) Clonar el repositorio
 ------------------------
-git clone https://github.com/ORGANIZACION/REPO.git
+git clone https://github.com/omgchyah/escuela_the_corner
 cd REPO
 
 2) Preparar la rama dev local
