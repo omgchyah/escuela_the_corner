@@ -36,10 +36,11 @@ pip-wheel-metadata/
 # ─────────────────────────────────────────
 # Configuración / secretos
 # ─────────────────────────────────────────
+# Env: ignora todo .env* pero permite la plantilla
 .env
 .env.*
-!.env.example          # mantiene la plantilla
-
+!.env.example
+!**/.env.example
 # ─────────────────────────────────────────
 # Base de datos / dumps locales
 # (NO ignores schema.sql, guardamos solo dumps fuera de src/)
