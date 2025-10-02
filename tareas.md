@@ -16,6 +16,7 @@
 # 🧭 Flujo diario (para todos)
 
 - Activar el entorno (.venv)
+- Tener MySQL encendido y el .env bien rellenado.
 - Pull de main
 - Trabajar en tu rama feature/
 - pip install -r requirements.txt (por si hay cambios)

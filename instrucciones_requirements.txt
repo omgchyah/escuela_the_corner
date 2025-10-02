@@ -12,7 +12,6 @@ Windows (PowerShell)
   python -m venv .venv
   .\.venv\Scripts\Activate.ps1
 
-
 macOS / Linux
 
   python3 -m venv .venv
@@ -27,12 +26,11 @@ macOS / Linux
 
   Windows
 
-  copy .env.example .env
-
+    copy .env.example .env
 
   macOS / Linux
 
-  cp .env.example .env
+    cp .env.example .env
 
   Rellena en .env:
 
@@ -52,3 +50,5 @@ macOS / Linux
 6) Probar que todo conecta
   python src/main.py
   Deberías ver un mensaje tipo “Connected to DB.”
+
+7) Para salir del venv: deactivate.
