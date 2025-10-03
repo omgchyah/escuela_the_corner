@@ -53,12 +53,11 @@ CREATE TABLE IF NOT EXISTS alumno_curso (
 
 /* -- OPCIONAL: SEED
 INSERT INTO alumnos (nombre, edad, dni) VALUES
-  ('Ana Pérez', 18, 'X1234567A'),
-  ('Luis Gómez', 20, 'Y7654321B');
+  ('Ana Pérez', 19, 'X1234567A'),
+  ('Bea López', 21, 'Y7654321B');
 
-INSERT INTO cursos (nombre, precio, fecha_inicio, fecha_fin) VALUES
-  ('Matemáticas', 199.99, '2025-10-01', '2026-03-01'),
-  ('Historia',     99.00, '2025-10-01', '2026-02-15');
+INSERT INTO cursos (nombre, precio, fecha_inicio) VALUES
+  ('Python Básico', 120.00, '2025-10-01'),
+  ('SQL Express',   90.00,  '2025-10-15');
 
-INSERT INTO alumno_curso (id_alumno, id_curso) VALUES (1,1),(2,2);
 */
