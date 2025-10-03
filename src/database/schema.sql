@@ -41,12 +41,12 @@ CREATE TABLE IF NOT EXISTS cursos (
 
 -- Relación muchos-a-muchos (matrículas)
 CREATE TABLE IF NOT EXISTS alumno_curso (
-  id_estudiante   INT UNSIGNED NOT NULL,
+  id_alumno   INT UNSIGNED NOT NULL,
   id_curso        INT UNSIGNED NOT NULL,
   matriculado_en  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (id_estudiante, id_curso),
+  PRIMARY KEY (id_alumno, id_curso),
   CONSTRAINT fk_ec_estudiante
-    FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id)
+    FOREIGN KEY (id_alumno) REFERENCES estudiantes(id)
     ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_ec_curso
     FOREIGN KEY (id_curso) REFERENCES cursos(id)
@@ -62,5 +62,5 @@ INSERT INTO cursos (nombre, precio, fecha_inicio, fecha_fin) VALUES
   ('Matemáticas', 199.99, '2025-10-01', '2026-03-01'),
   ('Historia',     99.00, '2025-10-01', '2026-02-15');
 
-INSERT INTO estudiante_curso (id_estudiante, id_curso) VALUES (1,1),(2,2);
+INSERT INTO estudiante_curso (id_alumno, id_curso) VALUES (1,1),(2,2);
 */
