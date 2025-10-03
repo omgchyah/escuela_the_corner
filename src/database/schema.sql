@@ -9,7 +9,7 @@ CREATE DATABASE IF NOT EXISTS escuela
 USE escuela;
 
 -- Estudiantes
-CREATE TABLE IF NOT EXISTS estudiantes (
+CREATE TABLE IF NOT EXISTS alumnos (
   id              INT UNSIGNED NOT NULL AUTO_INCREMENT,
   nombre          VARCHAR(50)  NOT NULL,
   edad            TINYINT UNSIGNED NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS cursos (
 ) ENGINE=InnoDB;
 
 -- Relación muchos-a-muchos (matrículas)
-CREATE TABLE IF NOT EXISTS estudiante_curso (
+CREATE TABLE IF NOT EXISTS alumno_curso (
   id_estudiante   INT UNSIGNED NOT NULL,
   id_curso        INT UNSIGNED NOT NULL,
   matriculado_en  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
