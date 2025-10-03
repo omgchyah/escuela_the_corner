@@ -3,14 +3,14 @@
 - Rossana (DB & conexión)  
 - Olga (Alumno)
 - Efra (Curso)  
-- Noemí (Main / CLI)  
+- Noémie (Main / CLI)  
   
 ## Orden sugerido (para no pisarse)
 
 - Rossana: conexión y schema ✅
 - Olga: Modelo + repositorio Alumno, CRUD básicos con la BD lista
 - Efra: Modelo + repositorio Curso, CRUD básicos con la BD lista
-- Noemí: menú con listar/crear usando repos, main.py (CLI / menús)
+- Noémie: menú con listar/crear usando repos, main.py (CLI / menús)
 - Todos: actualizar/borrar + matrículas + pulir validaciones
 
 # 🧭 Flujo diario (para todos)
@@ -80,7 +80,7 @@
 - Búsqueda find_by_name(substr).
 - Criterio de Done (Efra): no rompe si fechas son None; mensajes de error legibles al validar.
 
-# Noémi – Main / CLI  
+# Noémie – Main / CLI  
 
 ## Objetivo: un menú simple para probar sin tocar SQL.  
 
@@ -98,7 +98,7 @@
 - Lote 3 · UX & Validación
 - Entrada segura (int() con try/except, fechas opcionales)
 - Impresión bonita (tablas sencillas, encabezados).
-- Criterio de Done (Noemí): ningún input revienta la app; al cancelar (Enter vacío) vuelve al menú sin crash.
+- Criterio de Done (Noémie): ningún input revienta la app; al cancelar (Enter vacío) vuelve al menú sin crash.
 
 # Tareas transversales (todas)  
 
