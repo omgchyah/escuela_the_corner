@@ -5,7 +5,7 @@
 
 CREATE DATABASE IF NOT EXISTS escuela
   DEFAULT CHARACTER SET utf8mb4
-  COLLATE utf8mb4_0900_ai_ci;
+  COLLATE utf8mb4_general_ci;
 USE escuela;
 
 -- alumnos
@@ -41,15 +41,13 @@ CREATE TABLE IF NOT EXISTS cursos (
 
 -- Relación muchos-a-muchos (matrículas)
 CREATE TABLE IF NOT EXISTS alumno_curso (
-  id_alumno   INT UNSIGNED NOT NULL,
+  id_alumno       INT UNSIGNED NOT NULL,
   id_curso        INT UNSIGNED NOT NULL,
   matriculado_en  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id_alumno, id_curso),
-  CONSTRAINT fk_ec_alumno
-    FOREIGN KEY (id_alumno) REFERENCES alumnos(id)
+  CONSTRAINT fk_ac_alumno  FOREIGN KEY (id_alumno) REFERENCES alumnos(id)
     ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT fk_ec_curso
-    FOREIGN KEY (id_curso) REFERENCES cursos(id)
+  CONSTRAINT fk_ac_curso   FOREIGN KEY (id_curso)  REFERENCES cursos(id)
     ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
