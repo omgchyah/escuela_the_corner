@@ -9,18 +9,17 @@ class Curso:
         precio: float = 0.0,
         fecha_inicio: Optional[date] = None,
         fecha_fin: Optional[date] = None,
-        creado_en: Optional[datetime] = None,       # ← los pone la BD
-        actualizado_en: Optional[datetime] = None,  # ← la BD lo actualiza
+        creado_en: Optional[datetime] = None,
+        actualizado_en: Optional[datetime] = None,
     ):
         self.id = id
         self.nombre = nombre
-        self.precio = float(precio) if precio is not None else 0.0
+        self.precio = float(precio)
         self.fecha_inicio = fecha_inicio
         self.fecha_fin = fecha_fin
         self.creado_en = creado_en
         self.actualizado_en = actualizado_en
 
-    # --- Helpers prácticos ---
     def info(self) -> str:
         fi = self.fecha_inicio.isoformat() if self.fecha_inicio else "-"
         ff = self.fecha_fin.isoformat() if self.fecha_fin else "-"

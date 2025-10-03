@@ -1,15 +1,13 @@
 ## Vista rápida (roles)  
 
-- Rossana (DB & conexión)  
+- Rossana (DB & conexión, Curso)  
 - Olga (Alumno)
-- Efra (Curso)  
 - Noémie (Main / CLI)  
   
 ## Orden sugerido (para no pisarse)
 
-- Rossana: conexión y schema ✅
+- Rossana: conexión y schema ✅, Modelo + repositorio Curso, CRUD básicos con la BD lista
 - Olga: Modelo + repositorio Alumno, CRUD básicos con la BD lista
-- Efra: Modelo + repositorio Curso, CRUD básicos con la BD lista
 - Noémie: menú con listar/crear usando repos, main.py (CLI / menús)
 - Todos: actualizar/borrar + matrículas + pulir validaciones
 
@@ -63,7 +61,7 @@
 - Prueba manual: pequeño script que cree 2 alumnos y los imprima.
 - Criterio de Done (Olga): repo sin print internos (devuelve datos/booleans), errores capturados y docstrings breves.
 
-# Efra – Modelo y Repositorio de Curso
+# Rossana – Modelo y Repositorio de Curso
 
 ## Objetivo: CRUD de cursos + fechas.
 
@@ -82,7 +80,7 @@
 
 # Noémie – Main / CLI  
 
-## Objetivo: un menú simple para probar sin tocar SQL.  
+## Objetivo: un menú simple para probar sin tocar SQL 
 
 - Lote 1 · Menú mínimo
 - Menú principal (texto)
