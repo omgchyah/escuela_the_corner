@@ -1,15 +1,15 @@
 -- =========================================
 -- ESQUEMA: Escuela (MySQL 8+)
--- Tablas: estudiantes, cursos, estudiante_curso
+-- Tablas: alumnos, cursos, alumno_curso
 -- =========================================
 
 CREATE DATABASE IF NOT EXISTS escuela
   DEFAULT CHARACTER SET utf8mb4
-  COLLATE utf8mb4_0900_ai_ci;
+  COLLATE utf8mb4_general_ci;
 USE escuela;
 
--- Estudiantes
-CREATE TABLE IF NOT EXISTS estudiantes (
+-- alumnos
+CREATE TABLE IF NOT EXISTS alumnos (
   id              INT UNSIGNED NOT NULL AUTO_INCREMENT,
   nombre          VARCHAR(50)  NOT NULL,
   edad            TINYINT UNSIGNED NOT NULL,
@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS estudiantes (
   creado_en       TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   actualizado_en  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
-  UNIQUE KEY uk_estudiantes_dni (dni),
-  INDEX idx_estudiantes_nombre (nombre),
+  UNIQUE KEY uk_alumnos_dni (dni),
+  INDEX idx_alumnos_nombre (nombre),
   CHECK (edad BETWEEN 3 AND 120)
 ) ENGINE=InnoDB;
 
@@ -40,27 +40,24 @@ CREATE TABLE IF NOT EXISTS cursos (
 ) ENGINE=InnoDB;
 
 -- Relación muchos-a-muchos (matrículas)
-CREATE TABLE IF NOT EXISTS estudiante_curso (
-  id_estudiante   INT UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS alumno_curso (
+  id_alumno       INT UNSIGNED NOT NULL,
   id_curso        INT UNSIGNED NOT NULL,
   matriculado_en  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (id_estudiante, id_curso),
-  CONSTRAINT fk_ec_estudiante
-    FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id)
+  PRIMARY KEY (id_alumno, id_curso),
+  CONSTRAINT fk_ac_alumno  FOREIGN KEY (id_alumno) REFERENCES alumnos(id)
     ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT fk_ec_curso
-    FOREIGN KEY (id_curso) REFERENCES cursos(id)
+  CONSTRAINT fk_ac_curso   FOREIGN KEY (id_curso)  REFERENCES cursos(id)
     ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 /* -- OPCIONAL: SEED
-INSERT INTO estudiantes (nombre, edad, dni) VALUES
-  ('Ana Pérez', 18, 'X1234567A'),
-  ('Luis Gómez', 20, 'Y7654321B');
+INSERT INTO alumnos (nombre, edad, dni) VALUES
+  ('Ana Pérez', 19, 'X1234567A'),
+  ('Bea López', 21, 'Y7654321B');
 
-INSERT INTO cursos (nombre, precio, fecha_inicio, fecha_fin) VALUES
-  ('Matemáticas', 199.99, '2025-10-01', '2026-03-01'),
-  ('Historia',     99.00, '2025-10-01', '2026-02-15');
+INSERT INTO cursos (nombre, precio, fecha_inicio) VALUES
+  ('Python Básico', 120.00, '2025-10-01'),
+  ('SQL Express',   90.00,  '2025-10-15');
 
-INSERT INTO estudiante_curso (id_estudiante, id_curso) VALUES (1,1),(2,2);
 */
