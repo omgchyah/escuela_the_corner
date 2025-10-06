@@ -14,7 +14,7 @@ DB_USER    = os.getenv("DB_USER", "root")
 DB_PASS    = os.getenv("DB_PASSWORD", "")
 
 DB_CHARSET = "utf8mb4"
-DB_COLLATE = "utf8mb4_0900_ai_ci"
+DB_COLLATE = "utf8mb4_general_ci"
 
 def _server_conn():
     """Conexión al servidor (sin seleccionar BD)."""
