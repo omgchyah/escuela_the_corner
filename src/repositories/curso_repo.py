@@ -62,6 +62,16 @@ class CursoRepo:
     finally:
       cur.close()
       conn.close()
+  
+  def listar_por_precio(self) -> List[Curso]:
+    conn = get_connection()
+    cur = conn.cursor(dictionary=True)
+    try:
+      cur.execute(f"SELECT * FROM cursos ORDER BY precio ASC")
+      return [_row_to_model(r) for r in cur.fetchall()]
+    finally:
+      cur.close()
+      conn.close()
 
   def buscar_todos(self) -> List[Curso]:
     conn = get_connection()
